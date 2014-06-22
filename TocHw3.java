@@ -1,12 +1,12 @@
 // HW3 of Theory-of-Computation in NCKU
-// Name:³¯«Â¥à
+// Name:ï¿½ï¿½ï¿½Â¥ï¿½
 // Student ID:F74002060
 // File description:
 // I wrote 2 version of this homework
 // one is using JSONArray, the other is without using JSONArray
 // to compare the speed difference.
 // Example Input:
-// http://www.datagarage.io/api/5365dee31bc6e9d9463a0057 ¤j¦w°Ï ´_¿³«n¸ô 103
+// http://www.datagarage.io/api/5365dee31bc6e9d9463a0057 ï¿½jï¿½wï¿½ï¿½ ï¿½_ï¿½ï¿½ï¿½nï¿½ï¿½ 103
 // print 0 if there is no data match
 import java.io.*;
 import java.net.*;
@@ -14,8 +14,8 @@ import java.util.Arrays;
 import org.json.*;
 public class TocHw3
 {
-	private static String url;
-	private static URL data;
+		private static String url;
+		private static URL data;
     private static URLConnection connect;
     private static BufferedReader in ;
     private static int MAXNUM = 100000;
@@ -27,8 +27,8 @@ public class TocHw3
             a.append(inputLine);
         return a.toString();
     }
-	private static int WithoutJson(String City, String Add, String Year) throws IOException
-	{
+		private static int WithoutJson(String City, String Add, String Year) throws IOException
+		{
          int c,objectMatch = 0,cnt = 0, num = 1;
          String region[] = new String[MAXNUM];
          String addr[] = new String[MAXNUM];
@@ -107,39 +107,39 @@ public class TocHw3
          }
          if( num == 1) return 0;
          else return (int)sum/(num-1);
-    }
-	public static void main(String[] args) throws IOException, JSONException
-	{
-		// setting url 
-		url = args[0];
-		data = new URL(url);
-		connect = data.openConnection();
-		in = new BufferedReader(new InputStreamReader(connect.getInputStream(), "UTF-8"));
-		
-		// long StartTime = System.currentTimeMillis();
-		   System.out.println(WithoutJson(args[1],args[2],args[3]));
-		// long ProcessTime = System.currentTimeMillis() - StartTime;/*String tmp = test();
-		// System.out.println(ProcessTime/1000);
-		   
-		/* Using JSONArray
-		String data = ParseJson();
-		JSONArray Data = new JSONArray(data);
-		int total = 0, cnt = 0, year = Integer.parseInt(args[3]+"00"), date;
-		String city,add;
-		for(int i=0;i<Data.length();i++)
-		{
-			JSONObject object = Data.getJSONObject(i);
-			city = object.getString("¶mÂí¥«°Ï");
-			add = object.getString("¤g¦a°Ï¬q¦ì¸m©Î«Øª«°ÏªùµP");
-			date = object.getInt("¥æ©ö¦~¤ë");
-			if( city.equals(args[1]) && add.contains(args[2]) && date > year)
-			{
-				total = total + object.getInt("Á`»ù¤¸");
-				cnt ++;
-			}
 		}
-		if( cnt == 1) System.out.println(0);
-		else System.out.println(total/cnt);
-		*/
-	}
+		public static void main(String[] args) throws IOException, JSONException
+		{
+			// setting url 
+			url = args[0];
+			data = new URL(url);
+			connect = data.openConnection();
+			in = new BufferedReader(new InputStreamReader(connect.getInputStream(), "UTF-8"));
+		
+			// long StartTime = System.currentTimeMillis();
+		  System.out.println(WithoutJson(args[1],args[2],args[3]));
+			// long ProcessTime = System.currentTimeMillis() - StartTime;/*String tmp = test();
+			// System.out.println(ProcessTime/1000);
+		   
+			/* Using JSONArray
+			String data = ParseJson();
+			JSONArray Data = new JSONArray(data);
+			int total = 0, cnt = 0, year = Integer.parseInt(args[3]+"00"), date;
+			String city,add;
+			for(int i=0;i<Data.length();i++)
+			{
+				JSONObject object = Data.getJSONObject(i);
+				city = object.getString("ï¿½mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+				add = object.getString("ï¿½gï¿½aï¿½Ï¬qï¿½ï¿½ï¿½mï¿½Î«Øªï¿½ï¿½Ïªï¿½ï¿½P");
+				date = object.getInt("ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½");
+				if( city.equals(args[1]) && add.contains(args[2]) && date > year)
+				{
+					total = total + object.getInt("ï¿½`ï¿½ï¿½ï¿½ï¿½");
+					cnt ++;
+				}
+			}
+			if( cnt == 1) System.out.println(0);
+			else System.out.println(total/cnt);
+			*/
+		}
 }
